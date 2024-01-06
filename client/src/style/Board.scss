@@ -1,0 +1,7 @@
+.board-cell:disabled {
+	opacity: 0.5;
+}
+
+.board-cell--eaten {
+	background-color: #f00;
+}
