@@ -55,19 +55,13 @@ export function Game({gameData, requestSettingBoardDimensions, requestBoardCellE
 	return (
 		<div>
 			<p>You are player {yourPlayerIndex}</p>
-			{JSON.stringify(game)}
-			{game.state === "WAITING" && <p>Waiting for players...</p>}
+			{/* {JSON.stringify(game)} */}
+			{(game.state === "WAITING" || game.state === "AWAITING_BOARD_DIMENSIONS")&& <p>Waiting for players...</p>}
 			{game.state === "PLAYING" && game.activePlayerIndex === yourPlayerIndex ? (
-				<p>Your turn</p>
+				<p>Your turn!</p>
 			) : (
-				<p>Waiting for another player...</p>
+				game.state === "PLAYING" && <p>Waiting for another player...</p>
 			)}
-			{/* {game.state === "FINISHED" && (
-				<p>
-					Game finished. Winner: {game.winnerPlayerIndex}
-					{game.winnerPlayerIndex === yourPlayerIndex ? " (you)" : ""}
-				</p>
-			)} */}
 			{game.state === "PLAYING" || game.state === "FINISHED" ? (
 				<Board
 					isActive={game.state === "PLAYING" && game.activePlayerIndex === yourPlayerIndex}

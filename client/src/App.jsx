@@ -1,5 +1,6 @@
 import {Game} from "./Game.jsx";
 import {useState} from "react";
+import "./style/App.scss";
 
 export function App() {
 	const [gameState /* {webSocket, gameData: {game, yourIndex}} */, setGameState] = useState(null);
@@ -49,7 +50,7 @@ export function App() {
 		<main>
 			<h1>CHOMP</h1>
 			{gameState === null ? (
-				<button type="button" onClick={handleReadyButtonClick} disabled={isReadyButtonDisabled}>
+				<button type="button" onClick={handleReadyButtonClick} disabled={isReadyButtonDisabled} className="ready-btn">
 					I'm ready!
 				</button>
 			) : gameState.gameData === null ? (

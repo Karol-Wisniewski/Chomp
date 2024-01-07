@@ -1,7 +1,28 @@
-.board-cell:disabled {
-	opacity: 0.5;
-}
 
 .board-cell--eaten {
-	background-color: #f00;
+	background-color: rgba(255, 0, 0, 0.267) !important;
+}
+
+.board-cell {
+    width: 40px;
+    height: 40px;
+	text-align: center;
+	padding: 0;
+	background: none;
+	border: 1px solid #000;
+	font-size: 20px;
+
+	&:hover {
+		background-color: #ccc;
+		cursor: pointer;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+	
+		&:hover {
+			background-color: transparent;
+			cursor: unset;
+		}
+	}
 }
